@@ -563,9 +563,11 @@ async function executeEventChain(
       }
 
       // 检查后续事件
-      if (turnResponse && turnResponse.hasFollowUpEvent) {
-        currentAction = turnResponse.followUpEventDescription || '系统事件发生';
-        currentEventType = turnResponse.followUpEventType || '系统事件';
+      // turnResponse 在 onComplete 回调中赋值，TypeScript 无法追踪
+      const response = turnResponse as TurnResponse | null;
+      if (response && response.hasFollowUpEvent) {
+        currentAction = response.followUpEventDescription || '系统事件发生';
+        currentEventType = response.followUpEventType || '系统事件';
         isCurrentPlayerAction = false;
 
         get().addLog(`[${currentEventType}] ${currentAction}`, 'system');

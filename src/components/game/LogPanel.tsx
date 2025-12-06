@@ -3,6 +3,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import type { GameElement, RichTextSegment, LogEntry } from '@/shared/types';
 import { parseRichNarrative } from '@/features/ai/parsers';
 import { findNode } from '@/features/world/utils';
@@ -72,12 +73,42 @@ const ElementTooltip: React.FC<{
   element: GameElement;
   position: { x: number; y: number };
 }> = ({ element, position }) => {
-  return (
+  const tooltipRef = useRef<HTMLDivElement>(null);
+  const [adjustedPosition, setAdjustedPosition] = useState(position);
+
+  useEffect(() => {
+    if (tooltipRef.current) {
+      const rect = tooltipRef.current.getBoundingClientRect();
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+
+      let newX = position.x;
+      let newY = position.y - 8;
+
+      // 水平边界检测
+      const halfWidth = rect.width / 2;
+      if (newX - halfWidth < 8) {
+        newX = halfWidth + 8;
+      } else if (newX + halfWidth > viewportWidth - 8) {
+        newX = viewportWidth - halfWidth - 8;
+      }
+
+      // 垂直边界检测：如果上方空间不够，显示在下方
+      if (newY - rect.height < 8) {
+        newY = position.y + 32; // 显示在元素下方
+      }
+
+      setAdjustedPosition({ x: newX, y: newY });
+    }
+  }, [position]);
+
+  const tooltip = (
     <div
-      className="fixed z-50 px-3 py-2 bg-slate-800 border border-purple-500/50 rounded-lg shadow-lg max-w-xs pointer-events-none"
+      ref={tooltipRef}
+      className="fixed z-[9999] px-3 py-2 bg-slate-800 border border-purple-500/50 rounded-lg shadow-lg max-w-xs pointer-events-none"
       style={{
-        left: position.x,
-        top: position.y - 8,
+        left: adjustedPosition.x,
+        top: adjustedPosition.y,
         transform: 'translate(-50%, -100%)',
       }}
     >
@@ -90,6 +121,8 @@ const ElementTooltip: React.FC<{
       )}
     </div>
   );
+
+  return createPortal(tooltip, document.body);
 };
 
 // 富文本渲染器
