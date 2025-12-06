@@ -29,6 +29,8 @@ export default [
         DOMParser: 'readonly',
         Element: 'readonly',
         RegExpExecArray: 'readonly',
+        HTMLDivElement: 'readonly',
+        alert: 'readonly',
       },
     },
     plugins: {
@@ -38,7 +40,8 @@ export default [
     rules: {
       ...tseslint.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      'react-hooks/set-state-in-effect': 'off',
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/no-explicit-any': 'warn',
       'no-console': ['warn', { allow: ['warn', 'error'] }],

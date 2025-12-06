@@ -276,13 +276,11 @@ ${elementsDesc}
       temperature: 0.9,
     });
 
-    let fullText = '';
     const parsedOptions: ActionOption[] = [];
     let currentOptionBuffer = '';
 
     for await (const chunk of stream) {
       const content = chunk.choices[0]?.delta?.content || '';
-      fullText += content;
       currentOptionBuffer += content;
 
       // 尝试解析流中的选项

@@ -2,7 +2,7 @@
  * 卡牌节点组件
  */
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { ChevronRight, ChevronDown, EyeOff, Ban, Link2, ArrowRight } from 'lucide-react';
 import type { GameElement, SelectedElement } from '@/shared/types';
 import { GameIcon } from '@/components/common/Icon';
@@ -33,15 +33,20 @@ export const CardNode: React.FC<CardNodeProps> = ({
   scrollToId,
   onScrollComplete,
 }) => {
+  // 计算是否应该因为滚动目标而展开
+  const shouldExpandForScroll = useMemo(() => {
+    return scrollToId && containsId(element, scrollToId) && element.id !== scrollToId;
+  }, [scrollToId, element]);
+
   const [expanded, setExpanded] = useState(true);
   const nodeRef = useRef<HTMLDivElement>(null);
 
-  // 自动展开包含目标 ID 的子树
+  // 自动展开包含目标 ID 的子树（响应外部滚动目标变化）
   useEffect(() => {
-    if (scrollToId && containsId(element, scrollToId) && element.id !== scrollToId) {
+    if (shouldExpandForScroll) {
       setExpanded(true);
     }
-  }, [scrollToId, element]);
+  }, [shouldExpandForScroll]);
 
   // 滚动到目标元素
   useEffect(() => {
