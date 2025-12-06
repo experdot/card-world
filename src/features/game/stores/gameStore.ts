@@ -483,7 +483,7 @@ async function executeEventChain(
   }
 
   let currentWorld = initialWorld;
-  let currentHistory = [...initialHistory];
+  let currentHistory = JSON.parse(JSON.stringify(initialHistory)) as typeof initialHistory;
   let eventCount = 0;
   let currentAction = initialAction;
   let currentEventType = initialEventType;
@@ -558,6 +558,8 @@ async function executeEventChain(
         set((state) => {
           state.chatHistory = currentHistory;
         });
+        // set 后 Immer 会冻结 currentHistory，需要重新创建可变副本
+        currentHistory = [...currentHistory];
       }
 
       // 检查后续事件
