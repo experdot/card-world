@@ -9,8 +9,6 @@ export interface GameElement {
   name: string;
   description?: string;
   icon?: string; // 图标名称，由 LLM 决定
-  enabled?: boolean;
-  visible?: boolean;
   children: GameElement[];
 
   // 关系卡牌属性 (可选，仅用于关系卡牌)
@@ -39,8 +37,6 @@ export interface GameOperation {
     name?: string;
     description?: string;
     icon?: string;
-    enabled?: boolean;
-    visible?: boolean;
     // 关系字段
     isRelationship?: boolean;
     sourceId?: string;

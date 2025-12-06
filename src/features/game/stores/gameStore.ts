@@ -423,8 +423,6 @@ function buildPresetWorld(config: GameSetupConfig): { world: GameElement; firstL
     name: '玩家',
     description: config.characterDesc || '一名冒险者',
     icon: 'user',
-    enabled: true,
-    visible: true,
     children: config.presetElements || [],
   };
 
@@ -434,8 +432,6 @@ function buildPresetWorld(config: GameSetupConfig): { world: GameElement; firstL
     name: '起始之地',
     description: config.worldTheme || '一个神秘的地方',
     icon: 'map-pin',
-    enabled: true,
-    visible: true,
     children: [player],
   };
 
@@ -445,8 +441,6 @@ function buildPresetWorld(config: GameSetupConfig): { world: GameElement; firstL
     name: '世界',
     description: config.worldTheme || '等待探索的世界',
     icon: 'globe',
-    enabled: false,
-    visible: true,
     children: [location],
   };
 

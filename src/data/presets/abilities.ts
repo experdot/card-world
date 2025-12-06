@@ -11,8 +11,6 @@ export const ABILITY_OBSERVE: GameElement = {
   name: '观察',
   description: '仔细观察周围的环境，可能发现隐藏的细节',
   icon: 'eye',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -22,8 +20,6 @@ export const ABILITY_TALK: GameElement = {
   name: '交谈',
   description: '与他人进行对话交流',
   icon: 'message-circle',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -33,8 +29,6 @@ export const ABILITY_SEARCH: GameElement = {
   name: '搜索',
   description: '在当前区域搜寻有价值的物品',
   icon: 'search',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -44,8 +38,6 @@ export const ABILITY_REST: GameElement = {
   name: '休息',
   description: '短暂休息以恢复体力',
   icon: 'moon',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -55,8 +47,6 @@ export const ABILITY_MOVE: GameElement = {
   name: '移动',
   description: '前往其他可到达的地点',
   icon: 'map-pin',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -66,8 +56,6 @@ export const ABILITY_USE: GameElement = {
   name: '使用',
   description: '使用物品或与物体互动',
   icon: 'zap',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -78,8 +66,6 @@ export const ABILITY_ATTACK: GameElement = {
   name: '攻击',
   description: '对目标发起物理攻击',
   icon: 'sword',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -89,8 +75,6 @@ export const ABILITY_DEFEND: GameElement = {
   name: '防御',
   description: '采取防御姿态，减少受到的伤害',
   icon: 'shield',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -100,8 +84,6 @@ export const ABILITY_DODGE: GameElement = {
   name: '闪避',
   description: '尝试躲避即将到来的攻击',
   icon: 'zap',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -112,8 +94,6 @@ export const ABILITY_CAST_FIRE: GameElement = {
   name: '火球术',
   description: '召唤一团火焰攻击敌人',
   icon: 'flame',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -123,8 +103,6 @@ export const ABILITY_CAST_HEAL: GameElement = {
   name: '治愈术',
   description: '用魔力治愈伤口',
   icon: 'heart',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -134,8 +112,6 @@ export const ABILITY_CAST_LIGHT: GameElement = {
   name: '照明术',
   description: '创造一束光芒照亮黑暗',
   icon: 'sun',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -146,8 +122,6 @@ export const ABILITY_PERSUADE: GameElement = {
   name: '说服',
   description: '试图说服他人接受你的观点',
   icon: 'message-circle',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -157,8 +131,6 @@ export const ABILITY_INTIMIDATE: GameElement = {
   name: '威吓',
   description: '用气势压制对方',
   icon: 'angry',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -168,8 +140,6 @@ export const ABILITY_TRADE: GameElement = {
   name: '交易',
   description: '与商人或NPC进行物品交换',
   icon: 'coins',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -180,8 +150,6 @@ export const ABILITY_STEALTH: GameElement = {
   name: '潜行',
   description: '悄无声息地移动，避免被发现',
   icon: 'eye-off',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -191,8 +159,6 @@ export const ABILITY_LOCKPICK: GameElement = {
   name: '开锁',
   description: '尝试打开上锁的门或箱子',
   icon: 'key',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -202,8 +168,6 @@ export const ABILITY_CRAFT: GameElement = {
   name: '制作',
   description: '利用材料制作物品',
   icon: 'hammer',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -214,8 +178,6 @@ export const ABILITY_HACK: GameElement = {
   name: '黑入',
   description: '侵入电子系统获取信息或控制权',
   icon: 'link',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -225,8 +187,6 @@ export const ABILITY_SCAN: GameElement = {
   name: '扫描',
   description: '使用设备扫描分析目标',
   icon: 'search',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -237,8 +197,6 @@ export const ABILITY_MEDITATE: GameElement = {
   name: '打坐',
   description: '静心修炼，恢复灵力',
   icon: 'brain',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -248,8 +206,6 @@ export const ABILITY_SWORD_QI: GameElement = {
   name: '剑气',
   description: '释放凝聚的剑意攻击敌人',
   icon: 'sword',
-  enabled: true,
-  visible: true,
   children: [],
 };
 

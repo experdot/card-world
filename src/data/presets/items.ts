@@ -10,8 +10,6 @@ export const ITEM_TORCH: GameElement = {
   name: '火把',
   description: '可以照亮周围的简陋火把',
   icon: 'flame',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -21,8 +19,6 @@ export const ITEM_BREAD: GameElement = {
   name: '干粮',
   description: '朴素但能填饱肚子的食物',
   icon: 'box',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -32,8 +28,6 @@ export const ITEM_POTION: GameElement = {
   name: '治疗药水',
   description: '红色的液体，可以恢复少量生命',
   icon: 'flask-conical',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -43,8 +37,6 @@ export const ITEM_BROKEN_SWORD: GameElement = {
   name: '断剑',
   description: '残破但仍可使用的剑刃',
   icon: 'sword',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -54,8 +46,6 @@ export const ITEM_DATA_CHIP: GameElement = {
   name: '数据芯片',
   description: '存储着未知信息的芯片',
   icon: 'layers',
-  enabled: true,
-  visible: true,
   children: [],
 };
 
@@ -65,7 +55,5 @@ export const ITEM_SPIRIT_STONE: GameElement = {
   name: '灵石',
   description: '蕴含灵气的晶石，修炼必备',
   icon: 'gem',
-  enabled: true,
-  visible: true,
   children: [],
 };

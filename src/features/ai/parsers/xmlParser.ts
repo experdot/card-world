@@ -28,10 +28,6 @@ export const parseXMLResponse = (xmlString: string): TurnResponse => {
       }
 
       // 转换布尔值
-      if (args.visible === 'true') args.visible = true;
-      if (args.visible === 'false') args.visible = false;
-      if (args.enabled === 'true') args.enabled = true;
-      if (args.enabled === 'false') args.enabled = false;
       if (args.isRelationship === 'true') args.isRelationship = true;
       if (args.isRelationship === 'false') args.isRelationship = false;
 
@@ -100,8 +96,6 @@ const xmlToGameElement = (node: Element): GameElement => {
   const name = node.getAttribute('name') || '未知';
   const description = node.getAttribute('description') || '';
   const icon = node.getAttribute('icon') || undefined;
-  const enabled = node.getAttribute('enabled') !== 'false';
-  const visible = node.getAttribute('visible') !== 'false';
 
   // 关系属性
   const isRelationship = node.getAttribute('isRelationship') === 'true';
@@ -121,8 +115,6 @@ const xmlToGameElement = (node: Element): GameElement => {
     name,
     description,
     icon,
-    enabled,
-    visible,
     children,
     isRelationship,
     sourceId,
@@ -132,7 +124,7 @@ const xmlToGameElement = (node: Element): GameElement => {
 
 // GameElement 转 XML
 export const gameElementToXML = (element: GameElement): string => {
-  let xml = `<Element id="${element.id}" type="${element.type}" name="${element.name}" description="${element.description || ''}" enabled="${element.enabled}" visible="${element.visible}" icon="${element.icon || ''}"`;
+  let xml = `<Element id="${element.id}" type="${element.type}" name="${element.name}" description="${element.description || ''}" icon="${element.icon || ''}"`;
 
   if (element.children && element.children.length > 0) {
     xml += element.children.map((child) => gameElementToXML(child)).join('');

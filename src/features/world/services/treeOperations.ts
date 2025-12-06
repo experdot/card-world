@@ -21,8 +21,6 @@ const opNew = (root: GameElement, args: GameOperation['args']): GameElement => {
         name: args.name || '未知',
         description: args.description,
         icon: args.icon,
-        enabled: args.enabled !== false,
-        visible: args.visible !== false,
         children: [],
         isRelationship: args.isRelationship,
         sourceId: args.sourceId,
@@ -56,8 +54,6 @@ const opUpdate = (root: GameElement, args: GameOperation['args']): GameElement =
       if (args.name !== undefined) node.name = args.name;
       if (args.description !== undefined) node.description = args.description;
       if (args.icon !== undefined) node.icon = args.icon;
-      if (args.enabled !== undefined) node.enabled = args.enabled;
-      if (args.visible !== undefined) node.visible = args.visible;
     }
   });
 };

@@ -16,7 +16,7 @@ Aetheria: Card World is an innovative narrative game that combines:
 ### World as Cards
 - Hierarchical card structure representing the entire game world
 - Cards can be: locations, characters, items, abilities, status effects, containers, relationships, and more
-- Each card has properties: type, name, description, icon, visibility, and enabled state
+- Each card has properties: type, name, description, icon, state
 - Cards can contain other cards (e.g., a character card contains inventory, abilities, equipment)
 
 ### AI Integration

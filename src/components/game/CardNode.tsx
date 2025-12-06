@@ -3,7 +3,7 @@
  */
 
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import { ChevronRight, ChevronDown, EyeOff, Ban, Link2, ArrowRight } from 'lucide-react';
+import { ChevronRight, ChevronDown, Link2, ArrowRight } from 'lucide-react';
 import type { GameElement, SelectedElement } from '@/shared/types';
 import { GameIcon } from '@/components/common/Icon';
 
@@ -60,8 +60,6 @@ export const CardNode: React.FC<CardNodeProps> = ({
     }
   }, [scrollToId, element.id, onScrollComplete]);
 
-  if (!element.visible) return null;
-
   const isSelected = selectedElements.some((e) => e.id === element.id);
   const isSlot = element.type === '卡槽' || element.type === 'Slot' || element.type === '容器';
   const hasChildren = element.children && element.children.length > 0;
@@ -71,11 +69,8 @@ export const CardNode: React.FC<CardNodeProps> = ({
   let borderClass = 'border-slate-700';
   if (isSelected) borderClass = 'border-purple-500 ring-2 ring-purple-500 bg-purple-900/20';
 
-  const opacityClass = element.enabled ? 'opacity-100' : 'opacity-50 grayscale';
-
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (!element.enabled) return;
     onSelect(element.id, element.type, element.name);
   };
 
@@ -91,8 +86,8 @@ export const CardNode: React.FC<CardNodeProps> = ({
         className={`
           relative flex items-center p-2 rounded-md border transition-all duration-200
           ${isSlot ? 'bg-transparent border-dashed border-slate-600' : 'bg-slate-800 shadow-sm'}
-          ${borderClass} ${opacityClass}
-          ${element.enabled ? 'cursor-pointer hover:bg-slate-750 hover:border-slate-500' : 'cursor-not-allowed'}
+          ${borderClass}
+          cursor-pointer hover:bg-slate-750 hover:border-slate-500
         `}
         onClick={handleClick}
       >
@@ -137,11 +132,6 @@ export const CardNode: React.FC<CardNodeProps> = ({
           </div>
         </div>
 
-        {/* 状态指示器 */}
-        <div className="ml-2 flex gap-1 text-slate-500">
-          {!element.visible && <EyeOff size={12} />}
-          {!element.enabled && <Ban size={12} />}
-        </div>
       </div>
 
       {/* 子节点 */}

@@ -77,7 +77,7 @@ ${SYSTEM_INSTRUCTION_BASE}
 ## 3. 维护 (Maintenance)
 使用 XML 工具指令来更新世界树：
    - \`<new>\`：新建卡牌。你需要决定它的 type (如"物品","情绪","线索","建筑","关系") 和 icon。
-   - \`<update>\`：修改属性。重要：若要让某物可见，设置 \`visible="true"\`。若要解锁能力，设置 \`enabled="true"\`。
+   - \`<update>\`：修改属性（name, description, icon 等）。
    - \`<delete>\`：删除销毁的卡牌。
    - \`<move>\`：移动卡牌（例如从地点移到玩家背包）。
    - \`<duplicate>\`：复制卡牌。
@@ -97,7 +97,7 @@ ${SYSTEM_INSTRUCTION_BASE}
 创建关系卡牌的语法：
 \`\`\`xml
 <new parentId="world-root" type="关系" name="好友" description="深厚的友谊" icon="heart"
-     isRelationship="true" sourceId="player-1" targetId="npc-merchant" visible="true" enabled="true">
+     isRelationship="true" sourceId="player-1" targetId="npc-merchant">
 </new>
 \`\`\`
 
@@ -148,7 +148,7 @@ ${SYSTEM_INSTRUCTION_BASE}
 <Response>
     <Narrative>你发现了[[id:item-1|一把古老的钥匙]]，它散发着**神秘的光芒**。但你也感到~~一阵寒意~~从背后袭来...</Narrative>
     <Operations>
-        <new parentId="loc-1" type="物品" name="闪光的碎片" description="它是某个巨大物体的一部分。" icon="gem" visible="true" enabled="true"></new>
+        <new parentId="loc-1" type="物品" name="闪光的碎片" description="它是某个巨大物体的一部分。" icon="gem"></new>
         <update id="player-1" HP="95" />
         <delete id="old-card-id" />
     </Operations>
@@ -252,12 +252,12 @@ export const getInitialWorldPrompt = (config: {
         风沙掩埋了旧时代的遗迹... 你醒来了。
     </Narrative>
     <World>
-        <Element id="root" type="世界" name="废土世界" icon="globe" visible="true" enabled="false">
-            <Element id="loc-1" type="地点" name="坠毁的飞船" icon="map-pin" visible="true" enabled="true">
-                <Element id="player" type="角色" name="幸存者" description="..." icon="user" visible="true" enabled="true">
+        <Element id="root" type="世界" name="废土世界" icon="globe">
+            <Element id="loc-1" type="地点" name="坠毁的飞船" icon="map-pin">
+                <Element id="player" type="角色" name="幸存者" description="..." icon="user">
                      <Properties HP="10"/>
                      <!-- 如果用户选了背包系统 -->
-                     <Element id="slot-bag" type="卡槽" name="背包" icon="backpack" ... />
+                     <Element id="slot-bag" type="卡槽" name="背包" icon="backpack" />
                 </Element>
             </Element>
         </Element>
